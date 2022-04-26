@@ -72,7 +72,7 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name, :birthday, :email, :mobile, :message, :advertising, :active)
+      params.require(:contact).permit(:name, :birthday, :email, :mobile, :message, :advertising, :active, :cpfcnpj)
     end
 
     def kafka_message
