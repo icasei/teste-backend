@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:cpf_cnpj) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:birthday) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
@@ -21,6 +22,7 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= link_to contact.id, contact_path(contact) %></td>
+        <td><%= contact.cpf_cnpj %></td>
         <td><%= contact.name %></td>
         <td><%= contact.birthday %></td>
         <td><%= contact.email %></td>

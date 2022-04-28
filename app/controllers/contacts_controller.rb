@@ -72,11 +72,16 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name, :birthday, :email, :mobile, :message, :advertising, :active)
+      params.require(:contact).permit(:cpf_cnpj, :name, :birthday, :email, :mobile, :message, :advertising, :active)
     end
 
     def kafka_message
       message = @contact.destroyed? ? @contact.as_json.merge({destroyed: true}).to_json : @contact.as_json.to_json
       DeliveryBoy.deliver(message, topic: 'contacts_message')
+
+      # Create a new message logs
+
+      log = {id: @contact.id, name: @contact.name, email: @contact.email, sysdate: Time.now}
+      DeliveryBoy.deliver(log, topic: 'log_message')
     end
 end
