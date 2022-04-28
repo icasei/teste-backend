@@ -1,0 +1,20 @@
+# These config values will be shared by all environments but can be overridden.
+common: &common
+  client_id: "teste-backend"
+
+development:
+  <<: *common
+  brokers:
+    - kafka:9092
+
+test:
+  <<: *common
+  brokers:
+    - kafka:9092
+
+production:
+  <<: *common
+  brokers:
+    - kafka1.myapp.com:9092
+    - kafka2.myapp.com:9092
+    - kafka3.myapp.com:9092
