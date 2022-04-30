@@ -50,6 +50,13 @@ services:
       - broker-kafka
     ports:
       - 3000:3000
+    
+  redis:
+    image: redis
+    command: redis-server
+    hostname: redis
+    ports:
+      - "6379:6379"
 
 networks:
   broker-kafka:

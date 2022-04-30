@@ -5,7 +5,7 @@ class LogConsumer < Racecar::Consumer
     if @redis = Redis.new(host: "127.0.0.1", port: "6379")
       puts 'redis connected'
     else
-      puts 'redis not connected'
+      puts @redis.errors
     end
   end
 
@@ -19,7 +19,12 @@ class LogConsumer < Racecar::Consumer
   def process(message)
     data = JSON.parse(message.value)
     id = generate_id
-    puts "id: #{id} ---- Received message: #{data}"
-    @redis.set(id, data)
+    puts "id: #{id} ==> Received message: #{data}"
+    
+    if @redis.set(id, data)
+      puts "send to Redis!!"
+    else 
+      puts @redis.errors
+    end
   end
 end
