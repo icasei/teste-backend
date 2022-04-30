@@ -80,6 +80,7 @@ class ContactsController < ApplicationController
       DeliveryBoy.deliver(message, topic: 'contacts_message')
     end
 
+    #Implement message log
     def kafka_log
       log = {
         id: @contact.id,
