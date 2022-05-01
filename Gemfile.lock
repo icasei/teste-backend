@@ -249,6 +249,7 @@ GEM
     stimulus-rails (1.0.4)
       railties (>= 6.0.0)
     strscan (3.0.1)
+    test_helper (0.0.1)
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
@@ -287,6 +288,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-darwin-21
 
 DEPENDENCIES
   bootsnap
@@ -297,7 +299,7 @@ DEPENDENCIES
   duktape
   importmap-rails
   jbuilder
-  puma (~> 5.0)
+  puma
   racecar (~> 2.3.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   rails-i18n
@@ -309,6 +311,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  test_helper
   turbo-rails
   twitter-bootstrap-rails
   tzinfo-data
