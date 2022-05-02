@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:document) %></th>      
       <th><%= model_class.human_attribute_name(:birthday) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:mobile) %></th>
@@ -22,6 +23,7 @@
       <tr>
         <td><%= link_to contact.id, contact_path(contact) %></td>
         <td><%= contact.name %></td>
+        <td><%= contact.document %></td>
         <td><%= contact.birthday %></td>
         <td><%= contact.email %></td>
         <td><%= contact.mobile %></td>
